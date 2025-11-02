@@ -1,23 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <script src="https://cdn.tailwindcss.com"></script>
   <title>Para mi niña 💗</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    h1, h2, .title { font-family: 'Playfair Display', serif; }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
-<body class="bg-[#faf7f5] text-[#2b2b2b] font-poppins">
-  <div class="max-w-2xl mx-auto p-6 space-y-6">
-    <h1 class="text-4xl font-bold text-center font-playfair">Nuestra Historia</h1>
-  
-    <div class="bg-white p-5 rounded-2xl shadow hover:shadow-lg transition">
+<body class="bg-[#faf7f5] text-[#2b2b2b]">
+
+  <nav class="w-full py-4 bg-white/70 backdrop-blur shadow-sm fixed top-0 left-0 z-50">
+    <div class="max-w-4xl mx-auto flex justify-between items-center px-4">
+      <span class="title text-2xl font-semibold text-[#e08e9c]">Para mi niña 💗</span>
+      <div class="space-x-6 text-sm">
+        <a href="#inicio" class="hover:text-[#e08e9c] transition">Inicio</a>
+        <a href="#momentos" class="hover:text-[#e08e9c] transition">Momentos</a>
+        <a href="#mensaje" class="hover:text-[#e08e9c] transition">Mensaje</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="inicio" class="pt-28 pb-20 text-center max-w-3xl mx-auto px-6 fade">
+    <h1 class="text-5xl font-semibold mb-4">Nuestra Historia</h1>
+    <p class="text-lg text-gray-600">
+      A veces la vida te regala algo que no estabas buscando, pero que se vuelve todo.  
+      Y eso fuiste tú para mí.
+    </p>
+
+    <img src="https://via.placeholder.com/500x300" class="mx-auto mt-10 rounded-2xl shadow-md">
+  </section>
+
+  <section id="momentos" class="max-w-3xl mx-auto px-6 py-10 space-y-10">
+
+    <div class="bg-white p-6 rounded-2xl shadow fade">
       <p class="text-sm text-gray-500">18 Junio 2023</p>
-      <p class="text-lg font-semibold mt-1">Cuando te conocí 💞</p>
-      <p class="mt-2">
+      <p class="text-xl font-semibold text-[#e08e9c]">Cuando te conocí</p>
+      <p class="mt-2 text-gray-700">
         Ese día no tenía idea de lo importante que te volverías en mi vida.
       </p>
     </div>
-  </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow fade">
+      <p class="text-sm text-gray-500">2 Julio 2023</p>
+      <p class="text-xl font-semibold text-[#e08e9c]">Nuestra primera salida</p>
+      <p class="mt-2 text-gray-700">
+        Había algo en ti… tan ligero, tan sencillo, que sentí que podía quedarme ahí.
+      </p>
+    </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow fade">
+      <p class="text-sm text-gray-500">15 Enero 2024</p>
+      <p class="text-xl font-semibold text-[#e08e9c]">Ese día que no dejamos de reír</p>
+      <p class="mt-2 text-gray-700">
+        Y ahí entendí que la felicidad también podía ser suave.
+      </p>
+    </div>
+
+  </section>
+
+  <section id="mensaje" class="max-w-2xl mx-auto px-6 py-20 text-center fade">
+    <h2 class="text-4xl font-semibold mb-4">Gracias 💗</h2>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      Gracias por estar. Gracias por tu risa.  
+      Gracias por lo suave de tus manos y lo cálido de tu mirada.  
+      Gracias por hacer que incluso los días normales, se sientan como algo especial.
+    </p>
+
+    <p class="mt-6 text-xl text-[#e08e9c] font-semibold">
+      Con amor.<br>
+      — Tu niño.
+    </p>
+  </section>
+  
+  <script>
+    const elements = document.querySelectorAll('.fade');
+    function checkFade() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) el.classList.add('show');
+      });
+    }
+    window.addEventListener('scroll', checkFade);
+    window.addEventListener('load', checkFade);
+  </script>
+
 </body>
 </html>
